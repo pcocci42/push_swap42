@@ -20,7 +20,6 @@ SOURCES = main.c \
 	sort_3.c	\
 	push_back.c	\
 	correct.c	\
-	print_stacks.c	\
 	complex_sort_a.c	\
 	complex_sort_b.c	\
 	parse_argument.c	\
