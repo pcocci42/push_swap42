@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:10:27 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/20 11:15:58 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/23 15:26:43 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int	ft_atoi2(const char *str)
 		sign *= -1;
 		i++;
 	}
+	if (sign != 1 && ft_strlen2(str) > 11)
+		exit(0);
+	if (sign == 1 && ft_strlen2(str) > 10)
+		exit(0);
 	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
 		result *= 10;

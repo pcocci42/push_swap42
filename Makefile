@@ -23,7 +23,8 @@ SOURCES = main.c \
 	complex_sort_a.c	\
 	complex_sort_b.c	\
 	parse_argument.c	\
-	atoi.c
+	atoi.c	\
+	check_argument.c
 
 ### OBJECTS ###
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:30:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/23 14:38:16 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/23 15:07:37 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,19 @@ int	main(int ac, char **av)
 	n = ac -1;
 	i = 0;
 	if (ac > 2)
-	{
-		stack_a = malloc((sizeof(stack_a)) * (ac - 1));
-		while (n > 0)
+	{	
+		if (check_many(av) == 0)
 		{
-			stack_a[i] = ft_atoi2(av[n]);
-			n--;
-			i++;
-		}
-		size = ac - 1;
-		sort(stack_a, size);
+			stack_a = malloc((sizeof(stack_a)) * (ac - 1));
+			while (n > 0)
+			{
+				stack_a[i] = ft_atoi2(av[n]);
+				n--;
+				i++;
+			}
+			size = ac - 1;
+			sort(stack_a, size);
+		} 
 	}
 	if (ac == 2)
 		parse(av[1]);
