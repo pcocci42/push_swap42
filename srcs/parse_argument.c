@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:45:44 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/20 14:40:14 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/23 14:44:35 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,13 @@ int	*parse(char *str)
 		n++;
 		i--;
 	}
+	i = 0;
+	while(i < 6)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	sort(stack_a, count_words(str, ' '));
 	return (stack_a);
 }

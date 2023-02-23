@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:26:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/20 10:27:28 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/23 14:43:12 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	push_a(int *stack_a, int *stack_b, t_size *size)
 void	pa(int *stack_a, int *stack_b, t_size *size)
 {
 	push_a(stack_a, stack_b, size);
-	write(1, "pa\n", 3);
+	write(1, "pa", 2);
+	write(1, "\n", 1);
 }
 
 void	pb(int *stack_a, int *stack_b, t_size *size)

@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:30:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/20 14:37:26 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/23 14:38:16 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,5 @@ int	main(int ac, char **av)
 		sort(stack_a, size);
 	}
 	if (ac == 2)
-	{
-		stack_a = parse(av[1]);
-		sort(stack_a, count_words(av[1], ' '));
-	}
+		parse(av[1]);
 }
