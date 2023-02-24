@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:40:46 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/23 15:27:41 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:31:04 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ void	sort_b(int *stack_a, int *stack_b, t_size *size);
 int		min(int *stack, int size);
 void	less_op(t_operations *op);
 int		diff(t_operations min, t_operations op);
-int		*parse(char *str);
+void	parse(char *str);
 int		ft_atoi2(const char *str);
 int		count_words(const char *str, char c);
 void	sort(int *stack_a, int n);
-int		check_many(char **av);
 size_t	ft_strlen2(const char *str);
+int		check_many(char **av);
+int		check_many2(char **av);
 
 #endif

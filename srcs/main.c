@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:30:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/23 15:07:37 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/02/24 10:13:58 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac > 2)
 	{	
-		if (check_many(av) == 0)
+		if (check_many(av) == 1)
 		{
 			stack_a = malloc((sizeof(stack_a)) * (ac - 1));
 			while (n > 0)
