@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_argument.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:45:44 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/24 10:32:32 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/03/06 11:46:49 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	parse(char *str)
 	n = 0;
 	i = count_words(str, ' ') - 1;
 	split = ft_split2(str, ' ');
-	stack_a = malloc(sizeof(int) * i);
+	stack_a = malloc(sizeof(int) * count_words(str, ' '));
 	if (check_many2(split) != 1)
 		exit(0);
 	while (n < count_words(str, ' '))
@@ -107,7 +107,7 @@ void	parse(char *str)
 		i--;
 	}
 	i = 0;
-	while(i < 5)
+	while(i < count_words(str, ' '))
 	{
 		free(split[i]);
 		i++;
