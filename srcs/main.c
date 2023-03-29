@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:30:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/24 10:13:58 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:15:57 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,18 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac > 2)
 	{	
-		if (check_many(av) == 1)
+		check_many(av);
+		stack_a = malloc((sizeof(int)) * (ac - 1));
+		printf("%d\n", ac -1);
+		while (n > 0)
 		{
-			stack_a = malloc((sizeof(stack_a)) * (ac - 1));
-			while (n > 0)
-			{
-				stack_a[i] = ft_atoi2(av[n]);
-				n--;
-				i++;
-			}
-			size = ac - 1;
-			sort(stack_a, size);
-		} 
+			stack_a[i] = ft_atoi2(av[n]);
+			n--;
+			i++;
+		}
+		size = ac - 1;
+		check_dup(stack_a, size);
+		sort(stack_a, size);
 	}
 	if (ac == 2)
 		parse(av[1]);

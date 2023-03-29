@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:40:46 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/24 11:03:02 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:11:58 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int			check_many(char **av);
 int			check_many2(char **av);
 int			check_int(char *str);
 long int	ft_atoi2(const char *str);
+int		check_dup(int *stack_a, int size);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_argument.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:45:44 by pcocci            #+#    #+#             */
-/*   Updated: 2023/03/06 11:46:49 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:07:29 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,21 @@ char	**ft_split2(char const *s, char c)
 	return (split);
 }
 
+void	free_memory(char **split, char *str, int *stack_a)
+{
+	int i;
+
+	i = 0;
+	while(i < count_words(str, ' '))
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	check_dup(stack_a, count_words(str, ' '));
+
+}
+
 void	parse(char *str)
 {
 	char	**split;
@@ -99,19 +114,13 @@ void	parse(char *str)
 	split = ft_split2(str, ' ');
 	stack_a = malloc(sizeof(int) * count_words(str, ' '));
 	if (check_many2(split) != 1)
-		exit(0);
+		exit(1);
 	while (n < count_words(str, ' '))
 	{
 		stack_a[n] = ft_atoi2(split[i]);
 		n++;
 		i--;
 	}
-	i = 0;
-	while(i < count_words(str, ' '))
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	free_memory(split, str, stack_a);
 	sort(stack_a, count_words(str, ' '));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_argument.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:52:03 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/24 10:52:53 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:29:30 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ int	check_many(char **av)
 	while (av[i])
 	{
 		if (check_arg(av[i]) != 1 || check_int(av[i]) != 1)
-			return (0);
+		{
+			write(1, "Error\n", 7);
+			exit(1);
+			return (1);
+		}
 		i++;
 	}
 	return (1);
@@ -84,8 +88,29 @@ int	check_many2(char **av)
 	while (av[i])
 	{
 		if (check_arg(av[i]) != 1 || check_int(av[i]) != 1)
+		{
+			write(1, "Error\n", 7);
 			return (0);
+		}
 		i++;
 	}
 	return (1);
+}
+
+int	check_dup(int *stack_a, int size)
+{	
+	int i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (stack_a[i] == stack_a[i -1])
+		{
+			write(1, "Duplicates\n", 12);
+			exit(1);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
