@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:45:44 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/18 10:57:56 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/18 11:29:42 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**ft_split2(char const *s, char c)
 	return (split);
 }
 
-void	free_memory(char **split, char *str, int *stack_a)
+void	free_memory(char **split, char *str)
 {
 	int i;
 
@@ -98,8 +98,6 @@ void	free_memory(char **split, char *str, int *stack_a)
 		i++;
 	}
 	free(split);
-	free(stack_a);
-
 }
 
 void	parse(char *str)
@@ -115,7 +113,8 @@ void	parse(char *str)
 	stack_a = malloc(sizeof(int) * count_words(str, ' '));
 	if (check_many2(split) != 1)
 	{	
-		free_memory(split, str, stack_a);
+		free_memory(split, str);
+		free(stack_a);
 		exit(1);
 	}
 	while (n < count_words(str, ' '))
@@ -126,9 +125,10 @@ void	parse(char *str)
 	}
 	if (check_dup(stack_a, count_words(str, ' ')) == 0)
 	{
-		free_memory(split, str, stack_a);
+		free_memory(split, str);
+		free(stack_a);
 		exit(1);
 	}
-	free_memory(split, str, stack_a);
+	free_memory(split, str);
 	sort(stack_a, count_words(str, ' '));
 }
