@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:52:03 by pcocci            #+#    #+#             */
-/*   Updated: 2023/03/29 14:29:30 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:48:01 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int check_arg(char *str)
         sign_count++;
         i++;
     }
-    while (str[i] != '\0') {
+    while (str[i] != '\0') 
+	{
         c = str[i];
         if (!fz_isdigit(c) && c != '+' && c != '-')
         	return (0);
@@ -73,7 +74,6 @@ int	check_many(char **av)
 		{
 			write(1, "Error\n", 7);
 			exit(1);
-			return (1);
 		}
 		i++;
 	}
@@ -100,17 +100,22 @@ int	check_many2(char **av)
 int	check_dup(int *stack_a, int size)
 {	
 	int i;
+	int j;
 
 	i = 1;
 	while (i < size)
-	{
-		if (stack_a[i] == stack_a[i -1])
+	{	
+		j = 0;
+		while (j < size)
 		{
-			write(1, "Duplicates\n", 12);
-			exit(1);
-			return (1);
+			if (stack_a[i] == stack_a[j] && i != j)
+			{
+				write(1, "Duplicates\n", 12);
+				return(0);
+			}
+			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }

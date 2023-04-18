@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:30:34 by pcocci            #+#    #+#             */
-/*   Updated: 2023/03/29 14:15:57 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:51:03 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	main(int ac, char **av)
 	{	
 		check_many(av);
 		stack_a = malloc((sizeof(int)) * (ac - 1));
-		printf("%d\n", ac -1);
 		while (n > 0)
 		{
 			stack_a[i] = ft_atoi2(av[n]);
@@ -82,7 +81,11 @@ int	main(int ac, char **av)
 			i++;
 		}
 		size = ac - 1;
-		check_dup(stack_a, size);
+		if (check_dup(stack_a, size) == 0)
+		{
+			free(stack_a);
+			exit(1);
+		}
 		sort(stack_a, size);
 	}
 	if (ac == 2)

@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:40:46 by pcocci            #+#    #+#             */
-/*   Updated: 2023/03/29 14:11:58 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/18 10:44:36 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int			check_many(char **av);
 int			check_many2(char **av);
 int			check_int(char *str);
 long int	ft_atoi2(const char *str);
-int		check_dup(int *stack_a, int size);
+int			check_dup(int *stack_a, int size);
+void		done(int *stack_a, int *stack_b, t_size *size);
 
 #endif

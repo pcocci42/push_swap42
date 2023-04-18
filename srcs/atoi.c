@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:10:27 by pcocci            #+#    #+#             */
-/*   Updated: 2023/02/24 11:01:45 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/06 16:19:30 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long int	ft_atoi2(const char *str)
 {
 	long int	sign;
 	long int	result;
-	int	i;
+	int			i;
 
 	i = 0;
 	sign = 1;
