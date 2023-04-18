@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:45:44 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/18 11:29:42 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/18 12:08:24 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,6 @@ char	**ft_split2(char const *s, char c)
 	return (split);
 }
 
-void	free_memory(char **split, char *str)
-{
-	int i;
-
-	i = 0;
-	while(i < count_words(str, ' '))
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
 void	parse(char *str)
 {
 	char	**split;
@@ -111,12 +98,7 @@ void	parse(char *str)
 	i = count_words(str, ' ') - 1;
 	split = ft_split2(str, ' ');
 	stack_a = malloc(sizeof(int) * count_words(str, ' '));
-	if (check_many2(split) != 1)
-	{	
-		free_memory(split, str);
-		free(stack_a);
-		exit(1);
-	}
+	first_check_parse(split, str, stack_a);
 	while (n < count_words(str, ' '))
 	{
 		stack_a[n] = ft_atoi2(split[i]);
