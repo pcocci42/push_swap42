@@ -6,14 +6,13 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:32:24 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 13:09:25 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/19 14:13:20 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "bonus.h"
 
-int	fz_isdigit(int x)
+int	bonus_fz_isdigit(int x)
 {
 	if (x >= 48 && x <= 57)
 	{
@@ -25,7 +24,7 @@ int	fz_isdigit(int x)
 	}
 }
 
-int	check_int(char *str)
+int	bonus_check_int(char *str)
 {
 	long int	val;
 
@@ -35,7 +34,7 @@ int	check_int(char *str)
 	return (1);
 }
 
-int	check_arg(char *str)
+int	bonus_check_arg(char *str)
 {
 	int		i;
 	int		sign_count;
@@ -51,7 +50,7 @@ int	check_arg(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		if (!fz_isdigit(str[i]) && str[i] != '+' && str[i] != '-')
+		if (!bonus_fz_isdigit(str[i]) && str[i] != '+' && str[i] != '-')
 			return (0);
 		if (str[i] == '+' || str[i] == '-')
 			sign_count++;
@@ -71,7 +70,7 @@ int	bonus_check_many(char **av, t_stack *stack)
 	i = 1;
 	while (av[i])
 	{
-		if (check_arg(av[i]) != 1 || check_int(av[i]) != 1)
+		if (bonus_check_arg(av[i]) != 1 || bonus_check_int(av[i]) != 1)
 		{
 			write(1, "Error\n", 7);
             free(stack);
@@ -82,14 +81,14 @@ int	bonus_check_many(char **av, t_stack *stack)
 	return (1);
 }
 
-int	check_many2(char **av)
+int	bonus_check_many2(char **av)
 {
 	int	i;
 
 	i = 0;
 	while (av[i])
 	{
-		if (check_arg(av[i]) != 1 || check_int(av[i]) != 1)
+		if (bonus_check_arg(av[i]) != 1 || bonus_check_int(av[i]) != 1)
 		{
 			write(1, "Error\n", 7);
 			return (0);

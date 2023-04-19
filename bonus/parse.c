@@ -6,12 +6,11 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:56:10 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 11:58:57 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/19 13:31:24 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../libft/includes/libft.h"
 #include "bonus.h"
 
 size_t	bonus_strlen(const char *str)

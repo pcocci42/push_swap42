@@ -6,12 +6,11 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:31:20 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 13:20:56 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/19 14:31:05 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../libft/includes/libft.h"
 #include "bonus.h"
 
 long int	long_atoi(const char *str)
@@ -82,6 +81,8 @@ void    free_bonus(t_stack *stack, char **split, char *str)
         free(stack->stack);
         free(stack);
     }
+    else
+        bonus_free_split(split, str);
 }
 
 void    fill_split(char *str, t_stack *stack)
@@ -95,7 +96,7 @@ void    fill_split(char *str, t_stack *stack)
     stack->size = bonus_count_words(str, ' ');
     stack->stack = malloc(sizeof(int) * stack->size);
     split = bonus_split(str, ' ');
-    if (check_many2(split) == 0)
+    if (bonus_check_many2(split) == 0)
     {
         bonus_free_split(split, str);
         free(stack->stack);

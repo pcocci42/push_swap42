@@ -28,7 +28,7 @@ SOURCES = main.c \
 	check_argument.c
 
 BONUS = ./bonus/checker.c ./bonus/get_next_line/get_next_line.c ./bonus/get_next_line/get_next_line_utils.c \
-		bonus/checks.c bonus/utils.c bonus/parse.c bonus/fill_normal.c
+		bonus/checks.c bonus/utils.c bonus/parse.c bonus/fill_normal.c bonus/ft_str.c bonus/do_op.c
 ### OBJECTS ###
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
