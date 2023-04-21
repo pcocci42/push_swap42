@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:43:28 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 14:21:57 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/21 13:59:38 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ void	bonus_rrr(int *stack_a, int *stack_b, t_size *size)
 	reverse_ra(stack_a, size);
 	reverse_rb(stack_b, size);
 }
+
+void	bonus_rr(int *stack_a, int *stack_b, t_size *size)
+{
+	rotate_a(stack_a, size);
+	rotate_b(stack_b, size);
+}
+
 void    do_op(t_stack *stack, char *str)
 {
     if (ft_strncmp(str, "pb\n", 3) == 0)
@@ -29,7 +36,7 @@ void    do_op(t_stack *stack, char *str)
 	else if(ft_strncmp(str, "rb\n", 3) == 0)
 		rotate_b(stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "rr\n", 3) == 0)
-		rotate_all(stack->stack, stack->stack_b, stack->t_size);
+		bonus_rr(stack->stack, stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "rra\n", 4) == 0)
         reverse_ra(stack->stack, stack->t_size);
 	else if (ft_strncmp(str, "rrb\n", 4) == 0)

@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:31:20 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 14:31:05 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:16:10 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	bonus_check_dup(int *stack_a, int size)
 		{
 			if (stack_a[i] == stack_a[j] && i != j)
 			{
-				write(1, "Duplicates\n", 12);
+				write(1, "Error\n", 7);
 				return (0);
 			}
 			j++;
@@ -73,16 +73,10 @@ void	bonus_free_split(char **split, char *str)
 	free(split);
 }
 
-void    free_bonus(t_stack *stack, char **split, char *str)
+void    free_bonus(t_stack *stack)
 {
-    if (bonus_check_dup(stack->stack, stack->size) == 0)
-    {
-        bonus_free_split(split, str);
-        free(stack->stack);
-        free(stack);
-    }
-    else
-        bonus_free_split(split, str);
+	free(stack->stack);
+	free(stack);
 }
 
 void    fill_split(char *str, t_stack *stack)
@@ -94,21 +88,23 @@ void    fill_split(char *str, t_stack *stack)
     n = 0;
     i = bonus_count_words(str, ' ') - 1;
     stack->size = bonus_count_words(str, ' ');
-    stack->stack = malloc(sizeof(int) * stack->size);
-    split = bonus_split(str, ' ');
-    if (bonus_check_many2(split) == 0)
-    {
-        bonus_free_split(split, str);
-        free(stack->stack);
-        free(stack);
-        exit(1);
-    }
-    while (n < bonus_count_words(str, ' '))
+	if (stack->size > 1)
 	{
-		stack->stack[n]= long_atoi(split[i]);
-		n++;
-		i--;
+		split = bonus_split(str, ' ');
+		stack->stack = malloc(sizeof(int) * stack->size);
+		while (n < bonus_count_words(str, ' '))
+		{
+			stack->stack[n]= long_atoi(split[i]);
+			n++;
+			i--;
+		}
+		if (bonus_check_many2(split) == 0 || bonus_check_dup(stack->stack, stack->size) == 0)
+		{
+			bonus_free_split(split, str);
+			free_bonus(stack);
+			exit(1);
+		}
+		bonus_free_split(split, str);
 	}
-    free_bonus(stack, split, str);
 }
 

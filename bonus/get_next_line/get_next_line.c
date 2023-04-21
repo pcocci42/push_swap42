@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:13:31 by pcocci            #+#    #+#             */
-/*   Updated: 2022/11/25 11:13:33 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:28:38 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*new_txt(char *txt)
 	i = 0;
 	while (txt[i] && txt[i] != '\n')
 		i++;
-	if (!txt[i])
+	if (!txt[i] || txt[i + 1] == '\0')
 	{
 		free(txt);
 		return (NULL);

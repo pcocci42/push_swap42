@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:33:47 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 14:14:09 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/21 11:15:08 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 typedef struct s_stack
 {
-	int *stack;
-	int *stack_b;
-	int size;
+	int 	*stack;
+	int 	*stack_b;
+	int 	size;
 	t_size *t_size;
 } t_stack;
 
@@ -38,13 +38,12 @@ void		fill_split(char *str, t_stack *stack);
 int			bonus_count_words(const char *str, char c);
 int			bonus_check_dup(int *stack_a, int size);
 void		bonus_free_split(char **split, char *str);
-void		free_bonus(t_stack *stack, char **av, char *str);
+void		free_bonus(t_stack *stack);
 void		fill_stack(t_stack *stack, int size, char **av);
 int			bonus_check_sort(int *stack, int size);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		read_op(t_stack *stack);
 void		do_op(t_stack *stack, char *str);
 void		free_all(t_stack *stack);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:05:32 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 14:29:44 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:20:37 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,21 @@ void    free_all(t_stack *stack)
     free(stack);
 }
 
+void    allocate_size(t_stack *stack)
+{
+    stack->t_size = malloc(sizeof(t_size));
+    stack->t_size->size_a = stack->size;
+    stack->t_size->size_b = 0;
+}
+
 void    read_op(t_stack *stack)
 {
     char	*str;
     
     if (stack->size > 1)
     {   
-        stack->stack_b = malloc(sizeof(int) * stack->size);
-        stack->t_size = malloc(sizeof(t_size));
-        stack->t_size->size_a = stack->size;
-        stack->t_size->size_b = stack->size;
+        stack->stack_b = malloc((sizeof(int)) * (stack->size));
+        allocate_size(stack);
         while (1)
         {
             str = get_next_line(0);
@@ -88,8 +93,9 @@ void    read_op(t_stack *stack)
                 break ;
             else if (check_in(str) == 0)
             {
-                write(2, "ERROR\n", 6);
+                write(2, "Error\n", 7);
                 free_all(stack);
+                free(str);
                 exit(0);
             }
             else
@@ -98,15 +104,15 @@ void    read_op(t_stack *stack)
                 free(str);
             }
         }
-    }
-    if (bonus_check_sort(stack->stack, stack->size) == 1)
-    {
-        write(1, "OK\n", 4);
-        free_all(stack);
-    }
-    else
-    {
-        write(1, "KO\n", 3);
-        free_all(stack);
+         if (bonus_check_sort(stack->stack, stack->size) == 1)
+        {
+            write(1, "OK\n", 4);
+            free_all(stack);
+        }
+        else
+        {
+            write(1, "KO\n", 3);
+            free_all(stack);
+        }
     }
 }
