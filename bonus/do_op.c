@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:43:28 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/21 13:59:38 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:44:53 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ void	bonus_rr(int *stack_a, int *stack_b, t_size *size)
 	rotate_b(stack_b, size);
 }
 
-void    do_op(t_stack *stack, char *str)
+void	do_op(t_stack *stack, char *str)
 {
-    if (ft_strncmp(str, "pb\n", 3) == 0)
-        push_b(stack->stack, stack->stack_b, stack->t_size);
+	if (ft_strncmp(str, "pb\n", 3) == 0)
+		push_b(stack->stack, stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "pa\n", 3) == 0)
-        push_a(stack->stack, stack->stack_b, stack->t_size);
+		push_a(stack->stack, stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "ra\n", 3) == 0)
-        rotate_a(stack->stack, stack->t_size);
-	else if(ft_strncmp(str, "rb\n", 3) == 0)
+		rotate_a(stack->stack, stack->t_size);
+	else if (ft_strncmp(str, "rb\n", 3) == 0)
 		rotate_b(stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "rr\n", 3) == 0)
 		bonus_rr(stack->stack, stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "rra\n", 4) == 0)
-        reverse_ra(stack->stack, stack->t_size);
+		reverse_ra(stack->stack, stack->t_size);
 	else if (ft_strncmp(str, "rrb\n", 4) == 0)
-        reverse_rb(stack->stack_b, stack->t_size);
+		reverse_rb(stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "rrr\n", 4) == 0)
 		bonus_rrr(stack->stack, stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "sa\n", 3) == 0)
@@ -48,5 +48,5 @@ void    do_op(t_stack *stack, char *str)
 	else if (ft_strncmp(str, "sb\n", 3) == 0)
 		swap_b(stack->stack_b, stack->t_size);
 	else if (ft_strncmp(str, "ss\n", 3) == 0)
-        swap_all(stack->stack, stack->stack_b, stack->t_size);
+		swap_all(stack->stack, stack->stack_b, stack->t_size);
 }

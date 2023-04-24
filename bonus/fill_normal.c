@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   fill_normal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:05:32 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/21 15:20:37 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:41:26 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "bonus.h"
 
-void    fill_stack(t_stack *stack, int size, char **av)
-{   
-    int i;
-    int n;
+void	fill_stack(t_stack *stack, int size, char **av)
+{
+	int	i;
+	int	n;
 
-    i = 0;
-    n = size;
-    stack->size = size;
-    stack->stack = malloc((sizeof(int)) * (size));
-    while (n > 0)
+	i = 0;
+	n = size;
+	stack->size = size;
+	stack->stack = malloc((sizeof(int)) * (size));
+	while (n > 0)
 	{
 		stack->stack[i] = long_atoi(av[n]);
 		n--;
 		i++;
 	}
-    if (bonus_check_dup(stack->stack, size) == 0)
-    {
-        free(stack->stack);
-        free(stack);
-        exit(1);
-    }
+	if (bonus_check_dup(stack->stack, size) == 0)
+	{
+		free(stack->stack);
+		free(stack);
+		exit(1);
+	}
 }
 
 int	check_in(char *str)
@@ -63,56 +63,42 @@ int	check_in(char *str)
 	return (flag);
 }
 
-void    free_all(t_stack *stack)
+void	free_all(t_stack *stack)
 {
-    free(stack->stack);
-    free(stack->stack_b);
-    free(stack->t_size);
-    free(stack);
+	free(stack->stack);
+	free(stack->stack_b);
+	free(stack->t_size);
+	free(stack);
 }
 
-void    allocate_size(t_stack *stack)
+void	allocate_size(t_stack *stack)
 {
-    stack->t_size = malloc(sizeof(t_size));
-    stack->t_size->size_a = stack->size;
-    stack->t_size->size_b = 0;
+	stack->t_size = malloc(sizeof(t_size));
+	stack->t_size->size_a = stack->size;
+	stack->t_size->size_b = 0;
 }
 
-void    read_op(t_stack *stack)
+void	read_op(t_stack *stack)
 {
-    char	*str;
-    
-    if (stack->size > 1)
-    {   
-        stack->stack_b = malloc((sizeof(int)) * (stack->size));
-        allocate_size(stack);
-        while (1)
-        {
-            str = get_next_line(0);
-            if (str == NULL)
-                break ;
-            else if (check_in(str) == 0)
-            {
-                write(2, "Error\n", 7);
-                free_all(stack);
-                free(str);
-                exit(0);
-            }
-            else
-            {
-                do_op(stack, str);
-                free(str);
-            }
-        }
-         if (bonus_check_sort(stack->stack, stack->size) == 1)
-        {
-            write(1, "OK\n", 4);
-            free_all(stack);
-        }
-        else
-        {
-            write(1, "KO\n", 3);
-            free_all(stack);
-        }
-    }
+	char	*str;
+
+	if (stack->size > 1)
+	{
+		stack->stack_b = malloc((sizeof(int)) * (stack->size));
+		allocate_size(stack);
+		while (1)
+		{
+			str = get_next_line(0);
+			if (str == NULL)
+				break ;
+			else if (check_in(str) == 0)
+				ft_wrong_rl(stack, str);
+			else
+			{
+				do_op(stack, str);
+				free(str);
+			}
+		}
+		ft_end(stack);
+	}
 }

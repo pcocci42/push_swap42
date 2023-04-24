@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 13:38:40 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/24 11:41:39 by paolococci       ###   ########.fr       */
+/*   Created: 2023/04/19 10:39:45 by pcocci            #+#    #+#             */
+/*   Updated: 2023/04/24 11:39:57 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "bonus.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_wrong_rl(t_stack *stack, char *str)
 {
-	size_t	i;
-
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
-	{
-		if (s1[i] > s2[i])
-		{
-			if (s1[i] == '\0')
-			{
-				return (-(s1[i] - s2[i]));
-			}
-			return (s1[i] - s2[i]);
-		}
-		else if (s1[i] < s2[i])
-		{
-			if (s2[i] == '\0')
-			{
-				return (-(s1[i] - s2[i]));
-			}
-			return (s1[i] - s2[i]);
-		}
-		i++;
-	}
-	return (0);
+	write(2, "Error\n", 7);
+	free_all(stack);
+	free(str);
+	exit(0);
 }

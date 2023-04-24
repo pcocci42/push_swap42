@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:32:24 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 14:13:20 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:26:07 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int	bonus_check_many(char **av, t_stack *stack)
 		if (bonus_check_arg(av[i]) != 1 || bonus_check_int(av[i]) != 1)
 		{
 			write(1, "Error\n", 7);
-            free(stack);
-            exit(1);
+			free(stack);
+			exit(1);
 		}
 		i++;
 	}

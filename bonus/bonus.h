@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:33:47 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/21 11:15:08 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:46:32 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 
 typedef struct s_stack
 {
-	int 	*stack;
-	int 	*stack_b;
-	int 	size;
-	t_size *t_size;
-} t_stack;
+	int			*stack;
+	int			*stack_b;
+	int			size;
+	t_size		*t_size;
+}	t_stack;
 
 int			bonus_check_int(char *str);
 long int	long_atoi(const char *str);
@@ -45,5 +45,8 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		read_op(t_stack *stack);
 void		do_op(t_stack *stack, char *str);
 void		free_all(t_stack *stack);
+void		ft_exit(t_stack	*stack, char **split, char *str);
+void		ft_end(t_stack	*stack);
+void		ft_wrong_rl(t_stack *stack, char *str);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
+/*   By: paolococci <paolococci@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:31:20 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/21 15:16:10 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:33:13 by paolococci       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,38 +73,34 @@ void	bonus_free_split(char **split, char *str)
 	free(split);
 }
 
-void    free_bonus(t_stack *stack)
+void	free_bonus(t_stack *stack)
 {
 	free(stack->stack);
 	free(stack);
 }
 
-void    fill_split(char *str, t_stack *stack)
-{   
-    char    **split;
-    int     i;
-    int     n;
+void	fill_split(char *str, t_stack *stack)
+{
+	char	**split;
+	int		i;
+	int		n;
 
-    n = 0;
-    i = bonus_count_words(str, ' ') - 1;
-    stack->size = bonus_count_words(str, ' ');
+	n = 0;
+	i = bonus_count_words(str, ' ') - 1;
+	stack->size = bonus_count_words(str, ' ');
 	if (stack->size > 1)
 	{
 		split = bonus_split(str, ' ');
 		stack->stack = malloc(sizeof(int) * stack->size);
 		while (n < bonus_count_words(str, ' '))
 		{
-			stack->stack[n]= long_atoi(split[i]);
+			stack->stack[n] = long_atoi(split[i]);
 			n++;
 			i--;
 		}
-		if (bonus_check_many2(split) == 0 || bonus_check_dup(stack->stack, stack->size) == 0)
-		{
-			bonus_free_split(split, str);
-			free_bonus(stack);
-			exit(1);
-		}
+		if (bonus_check_many2(split) == 0
+			|| bonus_check_dup(stack->stack, stack->size) == 0)
+			ft_exit(stack, split, str);
 		bonus_free_split(split, str);
 	}
 }
-
