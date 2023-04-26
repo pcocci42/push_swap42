@@ -1,6 +1,6 @@
 ### COMPILATION ###
 CC      = gcc 
-FLAGS  = -Wall -Wextra -Werror -g
+FLAGS  = -Wall -Wextra -Werror
 
 ### EXECUTABLE ###
 NAME   = push_swap
@@ -27,8 +27,8 @@ SOURCES = main.c \
 	atoi.c	\
 	check_argument.c
 
-BONUS = ./bonus/checker.c ./bonus/get_next_line/get_next_line.c ./bonus/get_next_line/get_next_line_utils.c \
-		bonus/checks.c bonus/utils.c bonus/parse.c bonus/fill_normal.c bonus/ft_str.c bonus/do_op.c
+BONUS = bonus/checker.c ./bonus/get_next_line/get_next_line.c ./bonus/get_next_line/get_next_line_utils.c \
+		bonus/checks.c bonus/utils.c bonus/parse.c bonus/fill_normal.c bonus/ft_str.c bonus/do_op.c bonus/utils_2.c
 ### OBJECTS ###
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
@@ -70,7 +70,7 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c   $(HEADER)/$(NAME).h
 	@echo "$(BLUE)Creating object file -> $(WHITE)$(notdir $@)... $(RED)[Done]$(NOC)"
 
 $(BONUS_PATH)/%.o : $(BONUS_PATH)/%.c $(HEADER)/$(NAME).h
-	@$(CC) $(FLAGS) -c -o $@ $<
+	$(CC) $(FLAGS) -c -o $@ $<
 
 bonus:	$(BONUS_OBJ) 
 	$(CC) $(FLAGS) $(BONUS_OBJ) srcs/push.c srcs/reverse_rotate.c srcs/rotate.c srcs/swap.c -L $(LIBFT) -o checker

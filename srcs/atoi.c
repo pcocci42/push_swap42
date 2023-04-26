@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:10:27 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/18 12:00:08 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/26 10:46:58 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_dup(int *stack_a, int size)
 		{
 			if (stack_a[i] == stack_a[j] && i != j)
 			{
-				write(1, "Duplicates\n", 12);
+				write(1, "Error\n", 7);
 				return (0);
 			}
 			j++;

@@ -6,7 +6,7 @@
 /*   By: pcocci <pcocci@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 10:40:46 by pcocci            #+#    #+#             */
-/*   Updated: 2023/04/19 11:35:28 by pcocci           ###   ########.fr       */
+/*   Updated: 2023/04/26 11:05:05 by pcocci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ long int	ft_atoi2(const char *str);
 int			check_dup(int *stack_a, int size);
 void		done(int *stack_a, int *stack_b, t_size *size);
 void		free_memory(char **split, char *str);
-int*		create_stack(int *stack_a, int i, int n, char **av);
+int			*create_stack(int *stack_a, int i, int n, char **av);
 void		first_check_parse(char **split, char *str, int *stack_a);
 
 #endif
